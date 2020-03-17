@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# Run slrn for Usenet newsgroups via DCU's news server.
+#
+# $Id: usenet,v 1.1 2002/03/22 19:35:01 cns Exp $
+#
+
+set -eu -o pipefail -c
+
+if [ ! -f "$HOME/.usenet.newsrc" ]; then
+  exec slrn -f "$HOME/.usenet.newsrc" -h news.dcu.ie --create
+else
+  exec slrn -f "$HOME/.usenet.newsrc" -h news.dcu.ie
+fi

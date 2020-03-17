@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+set -eu -o pipefail -c
+
+if [ -f ~/.nopermwarn ]; then
+  echo "File permission warnings are already disabled for your account"
+  echo "To re-enable permission warnings remove ~/.nopermwarn"
+else
+  touch ~/.nopermwarn
+  echo "Permission warnings are now disabled for your account"
+fi

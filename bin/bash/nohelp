@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Turn off default help screen at login.
+#
+# $Id: nohelp,v 1.1 2002/03/22 19:42:49 cns Exp $
+#
+
+set -eu -o pipefail -c
+
+if [ -f "$HOME/.forward" ]; then
+  echo "Help screen is already disabled. Delete the $HOME/.nohelp file to renable it"
+else
+  touch "$HOME/.nohelp"
+  echo "Okay, you won't get the help screen at login anymore now!"
+fi

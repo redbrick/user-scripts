@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+#
+# Run slrn for redbrick newsgroups.
+#
+# $Id: news,v 1.2 2002/02/06 23:03:13 cns Exp $
+#
+set -eu -o pipefail -c
+
+if [ ! -f "$HOME/.jnewsrc" ]; then
+  exec slrn --create
+else
+  NUM=$(grep -v '!' "$HOME/.jnewsrc" | wc -l | awk '{print $1}')
+
+  if [ "$NUM" -lt 4 ]; then
+    echo "                                 >> NOTICE <<"
+    echo "          .---------------------------------------------------------."
+    if [ "$NUM" -eq 0 ]; then
+      NUM2=any
+      WORD=not
+    else
+      NUM2=$NUM
+      WORD=only
+    fi
+    if [ "$NUM" -eq 1 ]; then
+      S=
+    else
+      S=s
+    fi
+    printf "          %-72s |\n" "| You have $WORD subscribed to $NUM2 board$S! If you wish to"
+    echo "          | subscribe to more, do the following at the main screen: |"
+    echo "          |                                                         |"
+    echo "          | 1.  Press L (must be upper case)                        |"
+    echo "          | 2.  Type * and press return.                            |"
+    echo "          | 3.  Select boards by using arrow keys and subscribe     |"
+    echo "          |     to them by pressing the s key.                      |"
+    echo "          |                                                         |"
+    if [ "$NUM" -ne 0 ]; then
+      echo "          | This message will go away if you type slrn instead of   |"
+      echo "          | news in future! Press return to continue..              |"
+    else
+      echo "          | Press return to continue..                              |"
+    fi
+    echo "          \`---------------------------------------------------------'"
+    read -r junk
+  fi
+  exec slrn
+fi

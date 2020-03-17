@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+# Remove ~/.forward file for newbies.
+#
+# $Id: noforward,v 1.1 2002/10/12 17:44:47 cns Exp $
+#
+set -eu -o pipefail -c
+
+if [ -f "$HOME/.forward" ]; then
+  rm -f "$HOME/.forward"
+  echo "Forwarding of your RedBrick email has been disabled."
+else
+  echo "Forwarding of your RedBrick email is already disabled."
+fi

@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+"""install rb user scripts"""
 
 from setuptools import find_namespace_packages, setup
 
@@ -12,11 +13,21 @@ setup(
     install_requires=["utmp"],
     package_dir={"": "src"},
     packages=find_namespace_packages(where="src"),
-    scripts=["bin/chfn", "bin/chsh"],  # possible hack to install perl scripts.
+    # possible hack to install perl and bash scripts.
+    scripts=[
+        "bin/perl/chfn",
+        "bin/perl/chsh",
+        "bin/bash/noforward",
+        "bin/bash/nohelp",
+        "bin/bash/nopermwarn",
+        "bin/bash/news",
+        "bin/bash/usenet",
+    ],
     entry_points={
         "console_scripts": [
             "rbquota = rbquota.__main__:main",
             "rbusers = rbusers.__main__:main",
+            "help = help.__main__:main",
         ],
     },
 )
