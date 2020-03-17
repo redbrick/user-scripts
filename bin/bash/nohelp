@@ -5,9 +5,9 @@
 # $Id: nohelp,v 1.1 2002/03/22 19:42:49 cns Exp $
 #
 
-set -eu -o pipefail -c
+set -eu -o pipefail
 
-if [ -f "$HOME/.forward" ]; then
+if [ -f "$HOME/.nohelp" ]; then
   echo "Help screen is already disabled. Delete the $HOME/.nohelp file to renable it"
 else
   touch "$HOME/.nohelp"

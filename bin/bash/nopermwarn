@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eu -o pipefail -c
+set -eu -o pipefail
 
 if [ -f ~/.nopermwarn ]; then
   echo "File permission warnings are already disabled for your account"

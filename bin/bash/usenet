@@ -5,7 +5,7 @@
 # $Id: usenet,v 1.1 2002/03/22 19:35:01 cns Exp $
 #
 
-set -eu -o pipefail -c
+set -eu -o pipefail
 
 if [ ! -f "$HOME/.usenet.newsrc" ]; then
   exec slrn -f "$HOME/.usenet.newsrc" -h news.dcu.ie --create

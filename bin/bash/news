@@ -4,7 +4,7 @@
 #
 # $Id: news,v 1.2 2002/02/06 23:03:13 cns Exp $
 #
-set -eu -o pipefail -c
+set -eu -o pipefail
 
 if [ ! -f "$HOME/.jnewsrc" ]; then
   exec slrn --create
