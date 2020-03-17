@@ -1,4 +1,4 @@
-# Welcome to Redbrickd user-scripts 👋
+# Welcome to Redbrick user-scripts 👋
 
 [![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg)](docs.redbrick.dcu.ie)
 [![License: Apache](https://img.shields.io/badge/License-Apache-yellow.svg)](https://github.com/redbrick/user-scripts/blob/master/LICENSE)
@@ -7,7 +7,9 @@
 
 ## Install
 
-To install copy files from `bin` to `/usr/bin/rbquota`
+```bash
+python setup.py install
+```
 
 ## Author
 
