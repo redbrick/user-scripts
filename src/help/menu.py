@@ -1,6 +1,6 @@
 """help menu"""
 
-from .colours import blue, bright_cyan, green, red, white, yellow
+from .colours import blue, bright_cyan, cyan, green, red, white, yellow
 
 
 def help_menu():
@@ -25,3 +25,21 @@ def help_menu():
 {blue('|')} {bright_cyan('logout')}       {blue('|')} Quit Redbrick (but why bother? It's so much fun!)           {blue('|')}
 {blue("`--------------'-------------------------------------------------------------'")}
                {yellow('[ Helpdesk website - http://help.redbrick.dcu.ie ]')}"""
+
+
+def need_help() -> str:
+    return f"""
+     {blue('--------------------------[')}  Need Help?  {blue(']--------------------------')}
+     {blue('|')} A quick guide on how to use {red('Redbrick')} is available at any time by {blue('|')}
+     {blue('|')} typing in the word {cyan('help')} (followed by RETURN) at the prompt below {blue('|')}
+     {blue('----------------[')}  http://helpdesk.redbrick.dcu.ie {blue(']----------------')}"""
+
+
+def no_help(topic: str):
+    return f"""Sorry, there is no help for {topic}
+If {topic}  is a command, try the following commands:
+
+    man {topic}
+    info {topic}
+
+Feel free to email or hey helpdesk for help."""
