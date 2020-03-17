@@ -16,7 +16,7 @@ def print_users(logged_in_users, encoding=False):
     print(
         "                         %s %s\n"
         % (title_message, len(logged_in_users.keys())),
-        "                      %s %s friends   %s %s committee  %s %s  associate\n"
+        "                      %s %s friends   %s %s committee  %s %s associate\n"
         % (
             colours["white"],
             colours["default"],
