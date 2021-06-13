@@ -24,11 +24,15 @@ def get_logged_in_users(friends, encoding=False):
 
     with open("/var/log/wtmp", "rb") as file:
         for entry in read(file.read()):
-            if entry.ut_type != 7:
-                pass
-            user = entry.ut_user
+            # print(str(entry.type) == 'UTmpRecordType.login_process', entry.type, type(entry.type))
+            # print(entry.user)
+            if 'dead_process' in str(entry.type):
+                continue
+            user = entry.user
+            # print(user)
             if user in logged_in_users:
                 logged_in_users[user]["logins"] = logged_in_users[user]["logins"] + 1
+                # print(logged_in_users)
             else:
                 group = getpwnam(user)[3]
                 logged_in_users[user] = dict(
